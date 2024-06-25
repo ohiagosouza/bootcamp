@@ -2,25 +2,17 @@ package com.hiago.bootcamp.domain;
 
 import java.time.LocalDate;
 
-public class Mentoring {
-  private String title;
-  private String description;
+public class Mentoring extends Content {
   private LocalDate date;
 
-  public String getTitle() {
-    return title;
+  public Mentoring(String title, String description, LocalDate localDate) {
+    super(title, description);
+    this.date = localDate;
   }
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
+  @Override
+  public double calculateXp() {
+    return DEFAULT_XP + 20d;
   }
 
   public LocalDate getDate() {
@@ -34,9 +26,11 @@ public class Mentoring {
   @Override
   public String toString() {
     return "Mentoring{" +
-            "title='" + title + '\'' +
-            ", description='" + description + '\'' +
+            "title='" + getTitle() + '\'' +
+            ", description='" + getDescription() + '\'' +
             ", date=" + date +
             '}';
   }
+
+
 }

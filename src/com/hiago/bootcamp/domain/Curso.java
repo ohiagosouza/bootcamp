@@ -1,40 +1,29 @@
 package com.hiago.bootcamp.domain;
 
-public class Curso {
-  private String title;
-  private String description;
+public class Curso extends Content{
   private int workload;
 
-  public String getTitle() {
-    return title;
-  }
-
-  public String getDescription() {
-    return description;
+  public Curso(String title, String description, int workload) {
+    super(title, description);
+    this.workload = workload;
   }
 
   public int getWorkload() {
     return workload;
   }
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public void setWorkload(int workload) {
-    this.workload = workload;
+  @Override
+  public double calculateXp() {
+    return DEFAULT_XP * workload;
   }
 
   @Override
   public String toString() {
     return "Curso{" +
-            "title='" + title + '\'' +
-            ", description='" + description + '\'' +
+            "title='" + getTitle() + '\'' +
+            ", description='" + getDescription() + '\'' +
             ", workload=" + workload +
             '}';
   }
+
 }
