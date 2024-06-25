@@ -19,10 +19,6 @@ public class Mentoring extends Content {
     return date;
   }
 
-  public void setDate(LocalDate date) {
-    this.date = date;
-  }
-
   @Override
   public String toString() {
     return "Mentoring{" +
